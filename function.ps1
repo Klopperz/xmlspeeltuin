@@ -1,41 +1,74 @@
-function Compare-PolicySettings {
-    #https://www.theserverside.com/opinion/Master-slave-terminology-alternatives-you-can-use-right-now
+function ToDictionary {
     param (
-        [Parameter(Mandatory=$true)]
-        [xml]$PrimaryPolicy,
-        [Parameter(Mandatory=$true)]
-        [xml]$ReplicaPolicy
+        [Parameter(Mandatory = $true)]
+        [xml]$GroupPolicy
+    )
+
+    $data = [System.Collections.Generic.Dictionary[String, Object]]::new()
+
+    foreach ($policy in $GroupPolicy.GPO.Computer.ExtensionData.Extension.Policy) {
+        $data.Add($policy.Name, $policy)
+    }
+
+    return $data
+}
+
+function Report {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$SiteName,
+        [Parameter(Mandatory = $true)]
+        [System.Collections.Generic.Dictionary[string, Object]]$Policies,
+        [Parameter(Mandatory = $true)]
+        [string]$OtherSiteName,
+        [Parameter(Mandatory = $true)]
+        [System.Collections.Generic.Dictionary[string, Object]]$Other
     )
 
     $compareData = @()
-    $PPN = $PrimaryPolicy.GPO.Name
-    $RPN = $ReplicaPolicy.GPO.Name
 
-    for ($i=0; $i -lt $PrimaryPolicy.GPO.Computer.ExtensionData.Extension.Policy.Count; $i++) {
-        $j=0
-        foreach ($item in $ReplicaPolicy.GPO.Computer.ExtensionData.Extension.Policy.Name) {
-            $MatchValue = $PrimaryPolicy.GPO.Computer.ExtensionData.Extension.Policy.Name[$i].CompareTo($ReplicaPolicy.GPO.Computer.ExtensionData.Extension.Policy.Name[$j])
-            if ($MatchValue -eq 0) {
-                $replicaState = $ReplicaPolicy.GPO.Computer.ExtensionData.Extension.Policy.State[$j]
-                $j=0
-                break
-            } elseif ($j -ge ($ReplicaPolicy.GPO.Computer.ExtensionData.Extension.Policy.Count-1)) {
-                $replicaState = "Setting not present"
-                $replicaState
-            } else {
-                $j++
-            } 
+    foreach ($policy in $Policies.Values) {
+        $compare = @{
+            "Name"                 = $policy.Name
+            "$SiteName State"      = $policy.State
+            "$OtherSiteName State" = "Setting not present"
+            "States Match"         = $false
         }
-        $compare = [PSCustomObject]@{
-            "Name" = $PrimaryPolicy.GPO.Computer.ExtensionData.Extension.Policy.Name[$i]
-            "$PPN State" = $PrimaryPolicy.GPO.Computer.ExtensionData.Extension.Policy.State[$i]
-            "$RPN State" = $replicaState
-            "States Match" = ($PrimaryPolicy.GPO.Computer.ExtensionData.Extension.Policy.State[$i] -eq $replicaState)
-            #"Random" = Get-Random -Minimum 1 -Maximum 100
-        }        
-        $compareData += $compare
+
+        # Check if the policy exist in the second group policy
+        # If so, start overwriting the values in the compare hashtable
+        if ($Other.ContainsKey($policy.Name)) {
+            $compare["$OtherSiteName State"] = $Other[$policy.Name].State;
+            $compare["States Match"] = ($compare["$SiteName State"] -eq $compare["$OtherSiteName State"])
+        }
+
+        # Convert hashtable to object and assign to the result object
+        $compareData += [PSCustomObject]$compare
     }
+
+    # Find the setting that only exist in $Other
+    foreach ($otherPolicy in $Other.Values) {
+        if (!$Policies.ContainsKey($otherPolicy.Name)) {
+            # Setting only exist in site B
+            $compare = @{
+                "Name"                 = $otherPolicy.Name
+                "$SiteName State"      = "Setting not present"
+                "$OtherSiteName State" = $otherPolicy.State
+                "States Match"         = $false
+            }
+
+            # Convert hashtable to object and assign to the result object
+            $compareData += [PSCustomObject]$compare
+        }
+    }
+
     return $compareData
 }
 
-Compare-PolicySettings -PrimaryPolicy $PrimaryPolicy -ReplicaPolicy $ReplicaPolicy
+[xml]$PrimaryPolicy = Get-Content xmlexampleA.xml
+[xml]$ReplicaPolicy = Get-Content xmlexampleB.xml
+
+$PrimaryGroupPolicy = ToDictionary -GroupPolicy $PrimaryPolicy
+$SecondaryGroupPolicy = ToDictionary -GroupPolicy $ReplicaPolicy
+
+Report -SiteName $PrimaryPolicy.GPO.Name -OtherSiteName $ReplicaPolicy.GPO.Name -Policies $PrimaryGroupPolicy -Other $SecondaryGroupPolicy

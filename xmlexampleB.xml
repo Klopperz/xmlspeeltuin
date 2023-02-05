@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-16"?>
+<GPO xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.microsoft.com/GroupPolicy/Settings">
+  <Identifier>
+    <Identifier xmlns="http://www.microsoft.com/GroupPolicy/Types">{6DB7E569-A2AE-4FC5-A208-6FDAB408F7E9}</Identifier>
+    <Domain xmlns="http://www.microsoft.com/GroupPolicy/Types">umcspeeltuin.local</Domain>
+  </Identifier>
+  <Name>FSLogix-Site-B</Name>
+  <IncludeComments>true</IncludeComments>
+  <CreatedTime>2023-02-02T15:18:20</CreatedTime>
+  <ModifiedTime>2023-02-04T20:28:30</ModifiedTime>
+  <ReadTime>2023-02-04T20:28:47.7325128Z</ReadTime>
+  <SecurityDescriptor>
+    <SDDL xmlns="http://www.microsoft.com/GroupPolicy/Types/Security">O:DAG:DAD:PAI(OA;CI;CR;edacfd8f-ffb3-11d1-b41d-00a0c968f939;;AU)(A;;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;S-1-5-21-1064817893-2129592697-2592719236-519)(A;CI;LCRPLORC;;;ED)(A;CI;LCRPLORC;;;AU)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;SY)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;CO)S:AI(OU;CIIDSA;WPWD;;f30e3bc2-9ff0-11d1-b603-0000f80367c1;WD)(OU;CIIOIDSA;WP;f30e3bbe-9ff0-11d1-b603-0000f80367c1;bf967aa5-0de6-11d0-a285-00aa003049e2;WD)(OU;CIIOIDSA;WP;f30e3bbf-9ff0-11d1-b603-0000f80367c1;bf967aa5-0de6-11d0-a285-00aa003049e2;WD)</SDDL>
+    <Owner xmlns="http://www.microsoft.com/GroupPolicy/Types/Security">
+      <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">S-1-5-21-1064817893-2129592697-2592719236-512</SID>
+      <Name xmlns="http://www.microsoft.com/GroupPolicy/Types">UMCSPEELTUIN\Domain Admins</Name>
+    </Owner>
+    <Group xmlns="http://www.microsoft.com/GroupPolicy/Types/Security">
+      <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">S-1-5-21-1064817893-2129592697-2592719236-512</SID>
+      <Name xmlns="http://www.microsoft.com/GroupPolicy/Types">UMCSPEELTUIN\Domain Admins</Name>
+    </Group>
+    <PermissionsPresent xmlns="http://www.microsoft.com/GroupPolicy/Types/Security">true</PermissionsPresent>
+    <Permissions xmlns="http://www.microsoft.com/GroupPolicy/Types/Security">
+      <InheritsFromParent>false</InheritsFromParent>
+      <TrusteePermissions>
+        <Trustee>
+          <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">S-1-5-9</SID>
+          <Name xmlns="http://www.microsoft.com/GroupPolicy/Types">NT AUTHORITY\ENTERPRISE DOMAIN CONTROLLERS</Name>
+        </Trustee>
+        <Type xsi:type="PermissionType">
+          <PermissionType>Allow</PermissionType>
+        </Type>
+        <Inherited>false</Inherited>
+        <Applicability>
+          <ToSelf>true</ToSelf>
+          <ToDescendantObjects>false</ToDescendantObjects>
+          <ToDescendantContainers>true</ToDescendantContainers>
+          <ToDirectDescendantsOnly>false</ToDirectDescendantsOnly>
+        </Applicability>
+        <Standard>
+          <GPOGroupedAccessEnum>Read</GPOGroupedAccessEnum>
+        </Standard>
+        <AccessMask>0</AccessMask>
+      </TrusteePermissions>
+      <TrusteePermissions>
+        <Trustee>
+          <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">S-1-5-21-1064817893-2129592697-2592719236-519</SID>
+          <Name xmlns="http://www.microsoft.com/GroupPolicy/Types">UMCSPEELTUIN\Enterprise Admins</Name>
+        </Trustee>
+        <Type xsi:type="PermissionType">
+          <PermissionType>Allow</PermissionType>
+        </Type>
+        <Inherited>false</Inherited>
+        <Applicability>
+          <ToSelf>true</ToSelf>
+          <ToDescendantObjects>false</ToDescendantObjects>
+          <ToDescendantContainers>true</ToDescendantContainers>
+          <ToDirectDescendantsOnly>false</ToDirectDescendantsOnly>
+        </Applicability>
+        <Standard>
+          <GPOGroupedAccessEnum>Edit, delete, modify security</GPOGroupedAccessEnum>
+        </Standard>
+        <AccessMask>0</AccessMask>
+      </TrusteePermissions>
+      <TrusteePermissions>
+        <Trustee>
+          <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">S-1-5-18</SID>
+          <Name xmlns="http://www.microsoft.com/GroupPolicy/Types">NT AUTHORITY\SYSTEM</Name>
+        </Trustee>
+        <Type xsi:type="PermissionType">
+          <PermissionType>Allow</PermissionType>
+        </Type>
+        <Inherited>false</Inherited>
+        <Applicability>
+          <ToSelf>true</ToSelf>
+          <ToDescendantObjects>false</ToDescendantObjects>
+          <ToDescendantContainers>true</ToDescendantContainers>
+          <ToDirectDescendantsOnly>false</ToDirectDescendantsOnly>
+        </Applicability>
+        <Standard>
+          <GPOGroupedAccessEnum>Edit, delete, modify security</GPOGroupedAccessEnum>
+        </Standard>
+        <AccessMask>0</AccessMask>
+      </TrusteePermissions>
+      <TrusteePermissions>
+        <Trustee>
+          <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">S-1-5-11</SID>
+          <Name xmlns="http://www.microsoft.com/GroupPolicy/Types">NT AUTHORITY\Authenticated Users</Name>
+        </Trustee>
+        <Type xsi:type="PermissionType">
+          <PermissionType>Allow</PermissionType>
+        </Type>
+        <Inherited>false</Inherited>
+        <Applicability>
+          <ToSelf>true</ToSelf>
+          <ToDescendantObjects>false</ToDescendantObjects>
+          <ToDescendantContainers>true</ToDescendantContainers>
+          <ToDirectDescendantsOnly>false</ToDirectDescendantsOnly>
+        </Applicability>
+        <Standard>
+          <GPOGroupedAccessEnum>Apply Group Policy</GPOGroupedAccessEnum>
+        </Standard>
+        <AccessMask>0</AccessMask>
+      </TrusteePermissions>
+      <TrusteePermissions>
+        <Trustee>
+          <SID xmlns="http://www.microsoft.com/GroupPolicy/Types">S-1-5-21-1064817893-2129592697-2592719236-512</SID>
+          <Name xmlns="http://www.microsoft.com/GroupPolicy/Types">UMCSPEELTUIN\Domain Admins</Name>
+        </Trustee>
+        <Type xsi:type="PermissionType">
+          <PermissionType>Allow</PermissionType>
+        </Type>
+        <Inherited>false</Inherited>
+        <Applicability>
+          <ToSelf>true</ToSelf>
+          <ToDescendantObjects>false</ToDescendantObjects>
+          <ToDescendantContainers>true</ToDescendantContainers>
+          <ToDirectDescendantsOnly>false</ToDirectDescendantsOnly>
+        </Applicability>
+        <Standard>
+          <GPOGroupedAccessEnum>Edit, delete, modify security</GPOGroupedAccessEnum>
+        </Standard>
+        <AccessMask>0</AccessMask>
+      </TrusteePermissions>
+    </Permissions>
+    <AuditingPresent xmlns="http://www.microsoft.com/GroupPolicy/Types/Security">false</AuditingPresent>
+  </SecurityDescriptor>
+  <FilterDataAvailable>true</FilterDataAvailable>
+  <Computer>
+    <VersionDirectory>8</VersionDirectory>
+    <VersionSysvol>8</VersionSysvol>
+    <Enabled>true</Enabled>
+    <ExtensionData>
+      <Extension xmlns:q1="http://www.microsoft.com/GroupPolicy/Settings/Registry" xsi:type="q1:RegistrySettings">
+        <q1:Policy>
+          <q1:Name>Include Outlook</q1:Name>
+          <q1:State>Enabled</q1:State>
+          <q1:Explain>Outlook data files will be included in the Office 365 Container
+
+NOTE:  Default is Enabled (1) which is the same as "Not Configured"
+
+Registry Entry:  HKLM\SOFTWARE\Policies\FSLogix\ODFC\IncludeOutlook
+Type:  DWORD
+Values:  0 = Disabled, 1 = Enabled</q1:Explain>
+          <q1:Supported>v2105 (2.9.7802.10873) or later</q1:Supported>
+          <q1:Category>FSLogix/Office 365 Containers</q1:Category>
+          <q1:CheckBox>
+            <q1:Name>Include Outlook</q1:Name>
+            <q1:State>Enabled</q1:State>
+          </q1:CheckBox>
+        </q1:Policy>
+        <q1:Policy>
+          <q1:Name>Is Dynamic (VHD)</q1:Name>
+          <q1:State>Disabled</q1:State>
+          <q1:Explain>VHD(x)s will be dynamically allocated. VHD(x) file size will grow as data is added to the VHD(x). If disabled, VHD(x)s that are auto-created will be fully allocated.
+
+Registry Entry:  HKLM\SOFTWARE\Policies\FSLogix\ODFC\IsDynamic
+
+NOTE:  Default is Enabled (1) which is the same as "Not Configured"
+
+Type:  DWORD
+Values:  0 = Disabled, 1 = Enabled</q1:Explain>
+          <q1:Supported>v2105 (2.9.7802.10873) or later</q1:Supported>
+          <q1:Category>FSLogix/Office 365 Containers</q1:Category>
+          <q1:CheckBox>
+            <q1:Name>Is Dynamic (VHD)</q1:Name>
+            <q1:State>Enabled</q1:State>
+          </q1:CheckBox>
+        </q1:Policy>
+        <q1:Policy>
+          <q1:Name>Dummy Policy</q1:Name>
+          <q1:State>Enabled</q1:State>
+          <q1:Explain>When the Office 365 Container is successfully attached, set Outlook to work in cached mode for the user. The setting change will only be effective for the specific user and for the length of the user session
+
+Registry Entry:  HKLM\Software\Policies\FSLogix\ODFC\OutlookCachedMode
+Type:  DWORD
+Values:  0 = Disabled, 1 = Enabled (only if container is attached)</q1:Explain>
+          <q1:Supported>v2105 (2.9.7802.10873) or later</q1:Supported>
+          <q1:Category>FSLogix/Office 365 Containers</q1:Category>
+          <q1:CheckBox>
+            <q1:Name>Outlook Cached Mode</q1:Name>
+            <q1:State>Enabled</q1:State>
+          </q1:CheckBox>
+        </q1:Policy>
+        <q1:Policy>
+          <q1:Name>Size In MBs</q1:Name>
+          <q1:State>Enabled</q1:State>
+          <q1:Explain>Specify the size for auto-created VHD(X) files.
+
+NOTE:  Default is 30,000 (30GB) which is the same as "Not Configured"
+
+Registry Entry:  HKLM\Software\Policies\FSLogix\ODFC\SizeInMBs
+Type:  DWORD
+Values:  Min = 500, Max = 1000000</q1:Explain>
+          <q1:Supported>v2105 (2.9.7802.10873) or later</q1:Supported>
+          <q1:Category>FSLogix/Office 365 Containers</q1:Category>
+          <q1:Numeric>
+            <q1:Name>Size In MBs</q1:Name>
+            <q1:State>Enabled</q1:State>
+            <q1:Value>500</q1:Value>
+          </q1:Numeric>
+        </q1:Policy>
+        <q1:Policy>
+          <q1:Name>VHD Access Mode</q1:Name>
+          <q1:State>Enabled</q1:State>
+          <q1:Explain>Controls whether the VHD/X file should be accessed directly or whether a difference disk should be used
+
+NOTE:  Default is Direct Access (0) which is the same as "Not Configured"
+
+Registry Entry:  HKLM\Software\Policies\FSLogix\ODFC\VHDAccessMode
+Type:  DWORD
+Values:  0 = Direct Access, 1 = DiffDisk on Network, 2 = Local DiffDisk, 3 = Unique Disk per Session</q1:Explain>
+          <q1:Supported>v2105 (2.9.7802.10873) or later</q1:Supported>
+          <q1:Category>FSLogix/Office 365 Containers</q1:Category>
+          <q1:DropDownList>
+            <q1:Name />
+            <q1:State>Enabled</q1:State>
+            <q1:Value>
+              <q1:Name>Direct Access</q1:Name>
+            </q1:Value>
+          </q1:DropDownList>
+        </q1:Policy>
+        <q1:Policy>
+          <q1:Name>VHD Locations</q1:Name>
+          <q1:State>Enabled</q1:State>
+          <q1:Explain>Specifies the network location where the VHD(X) files are stored. For example, \\servername\share\containers
+
+Registry Entry:  HKLM\Software\Policies\FSLogix\ODFC\VHDLocations
+REG_SZ</q1:Explain>
+          <q1:Supported>v2105 (2.9.7802.10873) or later</q1:Supported>
+          <q1:Category>FSLogix/Office 365 Containers</q1:Category>
+          <q1:EditText>
+            <q1:Name>VHD Locations</q1:Name>
+            <q1:State>Enabled</q1:State>
+            <q1:Value>\\umcspeeltuin.local\data\fslogix\ODFC</q1:Value>
+          </q1:EditText>
+        </q1:Policy>
+        <q1:Policy>
+          <q1:Name>Flip Flop Profile Directory Name</q1:Name>
+          <q1:State>Enabled</q1:State>
+          <q1:Explain>When Enabled the SID folder is created as "%username%%sid%" instead of the default "%sid%%username%". This setting has the same effect as setting SID Directory Name Pattern = "%username%%sid%" and SID Directory Name Match = "%username%%sid%".
+
+Registry Entry:  HKLM\SOFTWARE\Policies\FSLogix\ODFC\FlipFlopProfileDirectoryName
+Type:  DWORD
+Values:  0 = Disabled, 1 = Enabled</q1:Explain>
+          <q1:Supported>v2105 (2.9.7802.10873) or later</q1:Supported>
+          <q1:Category>FSLogix/Office 365 Containers/Container and Directory Naming</q1:Category>
+          <q1:CheckBox>
+            <q1:Name>Flip Flop Profile Directory Name</q1:Name>
+            <q1:State>Enabled</q1:State>
+          </q1:CheckBox>
+        </q1:Policy>
+        <q1:Blocked>false</q1:Blocked>
+      </Extension>
+      <Name>Registry</Name>
+    </ExtensionData>
+  </Computer>
+  <User>
+    <VersionDirectory>0</VersionDirectory>
+    <VersionSysvol>0</VersionSysvol>
+    <Enabled>true</Enabled>
+  </User>
+</GPO>
