@@ -14,7 +14,7 @@ function Compare-PolicySettings {
     for ($i=0; $i -lt $PrimaryPolicy.GPO.Computer.ExtensionData.Extension.Policy.Count; $i++) {
         $j=0
         foreach ($item in $ReplicaPolicy.GPO.Computer.ExtensionData.Extension.Policy.Name) {
-            $MatchValue = $PrimaryPolicy.GPO.Computer.ExtensionData.Extension.Policy.Name[$i].CompareTo($ReplicaPolicy.GPO.Computer.ExtensionDat
+            $MatchValue = $PrimaryPolicy.GPO.Computer.ExtensionData.Extension.Policy.Name[$i].CompareTo($ReplicaPolicy.GPO.Computer.ExtensionData.Extension.Policy.Name[$j])
             if ($MatchValue -eq 0) {
                 $replicaState = $ReplicaPolicy.GPO.Computer.ExtensionData.Extension.Policy.State[$j]
                 $j=0
