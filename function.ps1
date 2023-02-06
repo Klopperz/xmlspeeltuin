@@ -64,11 +64,3 @@ function Report {
 
     return $compareData
 }
-
-[xml]$PrimaryPolicy = Get-Content xmlexampleA.xml
-[xml]$ReplicaPolicy = Get-Content xmlexampleB.xml
-
-$PrimaryGroupPolicy = ToDictionary -GroupPolicy $PrimaryPolicy
-$SecondaryGroupPolicy = ToDictionary -GroupPolicy $ReplicaPolicy
-
-Report -SiteName $PrimaryPolicy.GPO.Name -OtherSiteName $ReplicaPolicy.GPO.Name -Policies $PrimaryGroupPolicy -Other $SecondaryGroupPolicy
